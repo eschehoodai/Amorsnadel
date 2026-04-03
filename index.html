@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="dark" lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AmorsNadel – Wo Kunst auf Haut trifft</title>
+  <meta name="description" content="AmorsNadel – Exklusives Tattoo-Studio in Zittau. Kuratierte Körperkunst von erstklassigen Künstlern." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+  <style>
+    /* Scroll-reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Navigation ===== -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">AMORSNADEL</a>
+
+    <div class="nav__links">
+      <a href="galerie.html" class="nav__link" data-i18n="nav.galerie">Galerie</a>
+      <a href="anfrage.html" class="nav__link" data-i18n="nav.anfrage">Anfrage</a>
+      <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <button class="lang-toggle" onclick="toggleLang()" aria-label="Переключить на русский">
+        <span class="material-symbols-outlined lang-toggle__icon">translate</span>
+        <span class="lang-toggle__label">RU</span>
+      </button>
+      <a href="anfrage.html" class="nav__cta" data-i18n="nav.cta">Jetzt Buchen</a>
+    </div>
+
+    <button class="nav__hamburger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile-menu">
+    <a href="galerie.html" class="nav__link" data-i18n="nav.galerie">Galerie</a>
+    <a href="anfrage.html" class="nav__link" data-i18n="nav.anfrage">Anfrage</a>
+    <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
+    <button class="lang-toggle" onclick="toggleLang()" style="margin-top:0.5rem;">
+      <span class="material-symbols-outlined lang-toggle__icon">translate</span>
+      <span class="lang-toggle__label">RU</span>
+    </button>
+  </div>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <div class="hero__bg">
+      <img src="Bilder/kunstbeiarbeit1.webp" alt="Tattoo-Künstler bei der Arbeit" />
+      <div class="hero__bg-overlay hero-overlay"></div>
+      <div class="hero__bg-overlay" style="background: rgba(10,10,10,0.2)"></div>
+    </div>
+
+    <div class="hero__content">
+      <h1 class="hero__title" data-i18n-html="index.hero.title">
+        Wo <span class="text-accent-gradient">Kunst</span><br />auf <span class="text-red-gradient">Haut</span> trifft.
+      </h1>
+      <p class="hero__desc" data-i18n="index.hero.desc">
+        Ein Heiligtum der Beständigkeit. Wir erheben das Tätowierhandwerk zu einem kuratierten Galerie-Erlebnis, bei dem jeder Stich ein Meisterwerk ist.
+      </p>
+      <div class="hero__actions">
+        <a href="anfrage.html" class="btn btn--primary" data-i18n="index.hero.btn1">Beratungstermin buchen</a>
+        <a href="galerie.html" class="btn btn--outline" data-i18n="index.hero.btn2">Archiv ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About Section ===== -->
+  <section class="about" id="about">
+    <div class="about__grid">
+      <div class="about__images reveal">
+        <div class="about__img-main">
+          <img src="Bilder/k%C3%BCnstler.webp" alt="AmorsNadel Studio-Interieur" />
+        </div>
+        <div class="about__img-accent">
+          <img src="Bilder/k%C3%BCnstler.webp" alt="Detailaufnahme Tinte auf Haut" />
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="about__label" data-i18n="index.about.label">Die Philosophie</span>
+        <h2 class="about__title" data-i18n="index.about.title">Über das Studio</h2>
+        <div class="about__text">
+          <p data-i18n="index.about.p1">
+            AmorsNadel ist nicht nur ein Studio; es ist ein Archiv menschlichen Ausdrucks. Im Herzen der Stadt gelegen, bieten wir eine private, exklusive Umgebung für all jene, die ihren Körper als Leinwand für lebenslange Geschichten betrachten.
+          </p>
+          <p data-i18n="index.about.p2">
+            Unser Raum ist auf Fokus und künstlerische Reinheit ausgelegt. Von der chirurgischen Präzision unserer Ausrüstung bis zur galeriereifen Präsentation unseres Portfolios wird jedes Detail akribisch kuratiert, um die Beständigkeit der Markierung zu ehren.
+          </p>
+        </div>
+        <div class="about__divider"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Gallery Sneak Peek ===== -->
+  <section class="gallery-peek" id="galerie-peek">
+    <div class="gallery-peek__header reveal">
+      <span class="gallery-peek__label" data-i18n="index.gallery.label">Die Sammlung</span>
+      <h2 class="gallery-peek__title" data-i18n="index.gallery.title">Aktuelle Galerie</h2>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <!-- Item 1 – Large -->
+      <div class="gallery-item gallery-item--large">
+        <img src="Bilder/ruecken.webp" alt="Rücken-Tattoo" />
+        <div class="gallery-item__overlay"></div>
+        <div class="gallery-item__info">
+          <p class="gallery-item__title" style="font-size:1.5rem">Wiedergeburt — Elias Thorne</p>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="gallery-item gallery-item--wide">
+        <img src="Bilder/odin.jpg" alt="Odin Tattoo" />
+      </div>
+
+      <!-- Item 3 -->
+      <div class="gallery-item">
+        <img src="Bilder/naruto.webp" alt="Naruto Tattoo" />
+      </div>
+
+      <!-- Item 4 -->
+      <div class="gallery-item">
+        <img src="Bilder/donaldduck.webp" alt="Donald Duck Tattoo" />
+      </div>
+    </div>
+
+    <div class="gallery-peek__cta reveal">
+      <a href="galerie.html" class="btn btn--primary" style="box-shadow: 0 0 40px rgba(212,175,55,0.1)" data-i18n="index.gallery.cta">Das Archiv betreten</a>
+    </div>
+  </section>
+
+  <!-- ===== Consultation Section ===== -->
+  <section class="consult" id="beratung">
+    <div class="consult__box">
+      <div class="consult__glow"></div>
+      <div class="consult__grid">
+        <div class="reveal">
+          <h2 class="consult__title" data-i18n-html="index.consult.title">Beginne deine<br />Transformation</h2>
+          <p class="consult__desc" data-i18n="index.consult.desc">
+            Die Reise zu permanenter Kunst beginnt mit einem Gespräch. Teile uns deine Vision mit, und wir finden den passenden Künstler für dich.
+          </p>
+          <ul class="consult__list">
+            <li>
+              <span class="material-symbols-outlined">check</span>
+              <span data-i18n="index.consult.check1">Private Studio-Beratung</span>
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check</span>
+              <span data-i18n="index.consult.check2">Individuelle Design-Entwicklung</span>
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check</span>
+              <span data-i18n="index.consult.check3">Exzellente Nachsorge</span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="consult__form reveal">
+          <input type="text" placeholder="Vollständiger Name" data-i18n-ph="ph.name" required />
+          <input type="email" placeholder="E-Mail-Adresse" data-i18n-ph="ph.email" required />
+          <textarea rows="3" placeholder="Erzähle uns von deiner Idee" data-i18n-ph="ph.idea"></textarea>
+          <button type="submit" class="consult__submit" data-i18n="index.consult.submit">Beratung anfordern</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <a href="index.html" class="footer__logo">AMORSNADEL</a>
+    <div class="footer__links">
+      <a href="#" class="footer__link">Instagram</a>
+      <a href="#" class="footer__link">Facebook</a>
+      <a href="#" class="footer__link" data-i18n="footer.datenschutz">Datenschutz</a>
+      <a href="#" class="footer__link" data-i18n="footer.agb">AGB</a>
+    </div>
+    <div class="footer__copy" data-i18n="footer.copy">© 2026 AMORSNADEL. Alle Rechte vorbehalten.</div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

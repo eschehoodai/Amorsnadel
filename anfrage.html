@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="dark" lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anfrage – AmorsNadel</title>
+  <meta name="description" content="Sichere dir dein Tattoo bei AmorsNadel – Buchungsanfrage und Beratungsprozess." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Navigation ===== -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">AMORSNADEL</a>
+    <div class="nav__links">
+      <a href="galerie.html" class="nav__link" data-i18n="nav.galerie">Galerie</a>
+      <a href="anfrage.html" class="nav__link nav__link--active" data-i18n="nav.anfrage">Anfrage</a>
+      <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <button class="lang-toggle" onclick="toggleLang()" aria-label="Переключить на русский">
+        <span class="material-symbols-outlined lang-toggle__icon">translate</span>
+        <span class="lang-toggle__label">RU</span>
+      </button>
+      <a href="anfrage.html" class="nav__cta" data-i18n="nav.cta">Jetzt Buchen</a>
+    </div>
+    <button class="nav__hamburger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile-menu">
+    <a href="galerie.html" class="nav__link" data-i18n="nav.galerie">Galerie</a>
+    <a href="anfrage.html" class="nav__link nav__link--active" data-i18n="nav.anfrage">Anfrage</a>
+    <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
+    <button class="lang-toggle" onclick="toggleLang()" style="margin-top:0.5rem;">
+      <span class="material-symbols-outlined lang-toggle__icon">translate</span>
+      <span class="lang-toggle__label">RU</span>
+    </button>
+  </div>
+
+  <main style="padding-top: 5rem;">
+    <!-- ===== Hero Header ===== -->
+    <section class="anfrage-hero">
+      <div class="anfrage-hero__inner reveal">
+        <span class="anfrage-hero__label font-body" data-i18n="anfrage.label">Reservierungsportal</span>
+        <h1 class="anfrage-hero__title" data-i18n-html="anfrage.title">
+          SICHERE DIR DEIN <br /><span>EWIGES ZEICHEN.</span>
+        </h1>
+        <p class="anfrage-hero__desc" data-i18n="anfrage.desc">
+          Jedes Werk ist ein gemeinsamer Dialog zwischen Künstler und Haut. Beginne die Reise, indem du deine Vision unten detailliert beschreibst.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Booking Content Grid ===== -->
+    <section class="booking-grid">
+      <!-- Left: Process -->
+      <div class="booking-process">
+        <div class="booking-process__sticky reveal">
+          <h2 class="booking-process__title font-headline">DER PROZESS</h2>
+
+          <div class="booking-step">
+            <span class="booking-step__number">01</span>
+            <h3 class="booking-step__title">ERSTE BERATUNG</h3>
+            <p class="booking-step__desc">
+              Wir prüfen deine Anfrage, um sicherzustellen, dass das Projekt mit unserer künstlerischen Ausrichtung übereinstimmt. Du erhältst innerhalb von 3-5 Werktagen eine Antwort.
+            </p>
+          </div>
+
+          <div class="booking-step">
+            <span class="booking-step__number">02</span>
+            <h3 class="booking-step__title">DIE ANZAHLUNG</h3>
+            <p class="booking-step__desc">
+              Eine nicht rückerstattbare Anzahlung von 200 € ist erforderlich, um deinen Termin zu sichern und die individuelle Designphase zu beginnen.
+            </p>
+          </div>
+
+          <div class="booking-step">
+            <span class="booking-step__number">03</span>
+            <h3 class="booking-step__title">DER TERMIN</h3>
+            <p class="booking-step__desc">
+              Erscheine im Studio für deine Transformation. Die Restzahlung ist nach Abschluss der Sitzung fällig.
+            </p>
+          </div>
+
+          <div class="booking-note">
+            <p class="booking-note__label font-body">Hinweis für Kunden</p>
+            <p class="booking-note__text">"Der Körper ist eine Leinwand, die nur die intentionalsten Striche verdient."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="booking-form-section">
+        <form class="booking-form reveal">
+          <div class="booking-form__row">
+            <div class="booking-form__group">
+              <label data-i18n="anfrage.form.name">Vollständiger Name</label>
+              <input type="text" class="form-underline" placeholder="MAX MUSTERMANN" data-i18n-ph="ph.anfrage.name" required />
+            </div>
+            <div class="booking-form__group">
+              <label data-i18n="anfrage.form.email">E-Mail Adresse</label>
+              <input type="email" class="form-underline" placeholder="MAX@AMORSNADEL.DE" data-i18n-ph="ph.anfrage.email" required />
+            </div>
+          </div>
+
+          <div class="booking-form__row">
+            <div class="booking-form__group">
+              <label data-i18n="anfrage.form.phone">Telefonnummer</label>
+              <input type="tel" class="form-underline" placeholder="+49 (0) 000 000000" data-i18n-ph="ph.anfrage.phone" />
+            </div>
+            <div class="booking-form__group">
+              <label data-i18n="anfrage.form.placement">Platzierung am Körper</label>
+              <input type="text" class="form-underline" placeholder="INNENARM / BRUSTBEIN" data-i18n-ph="ph.anfrage.placement" />
+            </div>
+          </div>
+
+          <div class="booking-form__row">
+            <div class="booking-form__group">
+              <label data-i18n="anfrage.form.size">Geschätzte Größe (CM)</label>
+              <input type="text" class="form-underline" placeholder="Z.B. 15 X 10" data-i18n-ph="ph.anfrage.size" />
+            </div>
+            <div class="booking-form__group">
+              <label data-i18n="anfrage.form.reference">Referenzbilder</label>
+              <div style="position:relative; width:100%">
+                <input type="file" id="file-upload" style="display:none" />
+                <label for="file-upload" style="display:flex; align-items:center; justify-content:space-between; padding:1rem 0; color:var(--outline-variant); border-bottom:1px solid var(--outline-variant); cursor:pointer; transition:color 0.3s;">
+                  <span class="font-headline" style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase" data-i18n="anfrage.form.upload">VISION ANHÄNGEN</span>
+                  <span class="material-symbols-outlined" style="font-size:1rem">attachment</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-form__group">
+            <label data-i18n="anfrage.form.concept">Konzeptbeschreibung</label>
+            <textarea class="form-underline" rows="4" placeholder="BESCHREIBE SYMBOLIK, STIL UND ABSICHT..." data-i18n-ph="ph.anfrage.concept" style="resize:none"></textarea>
+          </div>
+
+          <div class="booking-form__actions">
+            <button type="submit" class="btn btn--secondary" style="padding:1.5rem 3rem; box-shadow:0 0 40px rgba(242,202,80,0.1); letter-spacing:0.2em;" data-i18n="anfrage.form.submit">
+              Anfrage absenden
+            </button>
+            <p class="booking-form__disclaimer" data-i18n-html="anfrage.form.disclaimer">
+              Mit dem Absenden erklärst du dich mit unserer<br />Anzahlungsrichtlinie einverstanden.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== Visual Divider Section ===== -->
+    <section style="height:614px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+      <div style="position:absolute; inset:0; z-index:0;">
+        <img src="Bilder/kunstbeiarbeit1.webp" alt="Studio-Atmosphäre" style="width:100%; height:100%; object-fit:cover; filter:grayscale(100%); opacity:0.3; transform:scale(1.1);" />
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, var(--surface), transparent, var(--surface))"></div>
+      </div>
+      <div style="position:relative; z-index:10; text-align:center; padding:0 2rem;">
+        <h2 class="font-headline" style="font-size:clamp(2rem, 5vw, 3.75rem); font-weight:700; letter-spacing:-0.02em; font-style:italic;" data-i18n="anfrage.divider">AMORSNADEL ERWARTET DICH.</h2>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <a href="index.html" class="footer__logo">AMORSNADEL</a>
+    <div class="footer__links">
+      <a href="#" class="footer__link">Instagram</a>
+      <a href="#" class="footer__link">Facebook</a>
+      <a href="#" class="footer__link" data-i18n="footer.datenschutz">Datenschutz</a>
+      <a href="#" class="footer__link" data-i18n="footer.agb">AGB</a>
+    </div>
+    <div class="footer__copy" data-i18n="footer.copy">© 2026 AMORSNADEL. Alle Rechte vorbehalten.</div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
