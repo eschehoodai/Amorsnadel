@@ -30,7 +30,7 @@ const translations = {
     ru: 'AmorsNadel — это не просто студия; это архив человеческого самовыражения. Расположенная в самом сердце города, мы предлагаем приватную, эксклюзивную среду для тех, кто рассматривает своё тело как холст для историй длиною в жизнь.'
   },
   'index.about.p2': {
-    de: 'Unser Raum ist auf Fokus und künstlerische Reinheit ausgelegt. Von der chirurgischen Präzision unserer Ausrüstung bis zur galeriereifen Präsentation unseres Portfolios wird jedes Detail akribisch kuratiert, um die Beständigkeit der Markierung zu ehren.',
+    de: ' Mein Raum ist auf Fokus und künstlerische Reinheit ausgelegt. Von der chirurgischen Präzision der Ausrüstung bis zur galeriereifen Präsentation unseres Portfolios wird jedes Detail akribisch kuratiert, um die Beständigkeit der Markierung zu ehren. ',
     ru: 'Наше пространство создано для сосредоточенности и художественной чистоты. От хирургической точности нашего оборудования до галерейной презентации портфолио — каждая деталь тщательно курируется, чтобы почтить постоянство отметки.'
   },
 
@@ -45,8 +45,8 @@ const translations = {
     ru: 'Начни свою<br />трансформацию'
   },
   'index.consult.desc': {
-    de: 'Die Reise zu permanenter Kunst beginnt mit einem Gespräch. Teile uns deine Vision mit, und wir finden den passenden Künstler für dich.',
-    ru: 'Путь к перманентному искусству начинается с разговора. Поделитесь своим видением, и мы подберём подходящего художника.'
+    de: ' Die Reise zu permanenter Kunst beginnt mit einem Gespräch. Teile mir deine Vision mit, und wir erschaffen das passende Kunstwerk für dich. ',
+    ru: 'Путь к перманентному искусству начинается с разговора. Поделитесь своим видением, и мы создадим подходящее произведение искусства.'
   },
   'index.consult.check1': { de: 'Private Studio-Beratung',         ru: 'Приватная консультация в студии' },
   'index.consult.check2': { de: 'Individuelle Design-Entwicklung',  ru: 'Индивидуальная разработка дизайна' },
