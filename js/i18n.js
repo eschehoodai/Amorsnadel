@@ -7,7 +7,6 @@ const translations = {
   'nav.kontakt':        { de: 'Kontakt',        ru: 'Контакт' },
   'nav.cta':            { de: 'Jetzt Buchen',   ru: 'Записаться' },
   'footer.datenschutz': { de: 'Datenschutz',    ru: 'Конфиденциальность' },
-  'footer.agb':         { de: 'AGB',            ru: 'Условия' },
   'footer.impressum':   { de: 'Impressum',      ru: 'Импрессум' },
   'footer.copy':        { de: '© 2026 AMORSNADEL. Alle Rechte vorbehalten.', ru: '© 2026 AMORSNADEL. Все права защищены.' },
 
@@ -158,10 +157,12 @@ const translations = {
 
 // Page titles
 const pageTitles = {
-  'index':    { de: 'AmorsNadel – Wo Kunst auf Haut trifft',                          ru: 'AmorsNadel – Где искусство встречает кожу' },
-  'galerie':  { de: 'Galerie – AmorsNadel',                                           ru: 'Галерея – AmorsNadel' },
-  'anfrage':  { de: 'Anfrage – AmorsNadel',                                           ru: 'Запрос – AmorsNadel' },
-  'kontakt':  { de: 'Kontakt – AmorsNadel',                                           ru: 'Контакт – AmorsNadel' },
+  'index':       { de: 'AmorsNadel – Wo Kunst auf Haut trifft',                       ru: 'AmorsNadel – Где искусство встречает кожу' },
+  'galerie':     { de: 'Galerie – AmorsNadel',                                        ru: 'Галерея – AmorsNadel' },
+  'anfrage':     { de: 'Anfrage – AmorsNadel',                                        ru: 'Запрос – AmorsNadel' },
+  'kontakt':     { de: 'Kontakt – AmorsNadel',                                        ru: 'Контакт – AmorsNadel' },
+  'datenschutz': { de: 'Datenschutz – AmorsNadel',                                    ru: 'Конфиденциальность – AmorsNadel' },
+  'impressum':   { de: 'Impressum – AmorsNadel',                                      ru: 'Импрессум – AmorsNadel' },
 };
 
 // ===== Engine =====
@@ -223,9 +224,11 @@ function applyTranslations(lang) {
 
 function detectPage() {
   const path = window.location.pathname.toLowerCase();
-  if (path.includes('galerie')) return 'galerie';
-  if (path.includes('anfrage')) return 'anfrage';
-  if (path.includes('kontakt')) return 'kontakt';
+  if (path.includes('datenschutz')) return 'datenschutz';
+  if (path.includes('impressum'))   return 'impressum';
+  if (path.includes('galerie'))    return 'galerie';
+  if (path.includes('anfrage'))    return 'anfrage';
+  if (path.includes('kontakt'))    return 'kontakt';
   return 'index';
 }
 
