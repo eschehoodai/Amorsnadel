@@ -27,6 +27,32 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* About-Section: Rabe hinter der gesamten rechten Spalte */
+    .about__col--with-bg {
+      position: relative;
+      isolation: isolate;
+    }
+    .about__col--with-bg > .about__text-bg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: -2rem;
+      width: 22rem;
+      max-width: 70%;
+      z-index: -1;
+      pointer-events: none;
+      filter: grayscale(20%);
+      display: flex;
+      align-items: center;
+    }
+    .about__col--with-bg > .about__text-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: right center;
+      opacity: 0.12;
+    }
   </style>
 </head>
 <body>
@@ -98,7 +124,10 @@
         </div>
       </div>
 
-      <div class="reveal">
+      <div class="reveal about__col--with-bg">
+        <div class="about__text-bg" aria-hidden="true">
+          <img src="Bilder/pngrabe.png" alt="" />
+        </div>
         <span class="about__label" data-i18n="index.about.label">Die Philosophie</span>
         <h2 class="about__title" data-i18n="index.about.title">Über das Studio</h2>
         <div class="about__text">
@@ -200,8 +229,8 @@
         <img src="Bilder/facebook.svg" alt="" class="footer__icon" />
         <span>Facebook</span>
       </a>
-      <a href="#" class="footer__link" data-i18n="footer.datenschutz">Datenschutz</a>
-      <a href="#" class="footer__link" data-i18n="footer.agb">AGB</a>
+      <a href="datenschutz.html" class="footer__link" data-i18n="footer.datenschutz">Datenschutz</a>
+      <a href="impressum.html" class="footer__link" data-i18n="footer.impressum">Impressum</a>
     </div>
     <div class="footer__copy" data-i18n="footer.copy">© 2026 AMORSNADEL. Alle Rechte vorbehalten.</div>
   </footer>

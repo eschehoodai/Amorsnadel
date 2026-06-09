@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="dark" lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum – AmorsNadel</title>
+  <meta name="description" content="Impressum von AmorsNadel – Tattoo Studio." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+  <style>
+    .legal-page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 8rem 1.5rem 4rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.75;
+      font-family: 'Manrope', sans-serif;
+    }
+    .legal-page h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .legal-page h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .legal-page p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .legal-page a {
+      color: #d4af37;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      transition: border-color 0.2s;
+    }
+    .legal-page a:hover {
+      border-color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Navigation ===== -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">AMORSNADEL</a>
+
+    <div class="nav__links">
+      <a href="galerie.html" class="nav__link" data-i18n="nav.galerie">Galerie</a>
+      <a href="anfrage.html" class="nav__link" data-i18n="nav.anfrage">Anfrage</a>
+      <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <button class="lang-toggle" onclick="toggleLang()" aria-label="Переключить на русский">
+        <span class="material-symbols-outlined lang-toggle__icon">translate</span>
+        <span class="lang-toggle__label">RU</span>
+      </button>
+      <a href="anfrage.html" class="nav__cta" data-i18n="nav.cta">Jetzt Buchen</a>
+    </div>
+
+    <button class="nav__hamburger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile-menu">
+    <a href="galerie.html" class="nav__link" data-i18n="nav.galerie">Galerie</a>
+    <a href="anfrage.html" class="nav__link" data-i18n="nav.anfrage">Anfrage</a>
+    <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
+    <button class="lang-toggle" onclick="toggleLang()" style="margin-top:0.5rem;">
+      <span class="material-symbols-outlined lang-toggle__icon">translate</span>
+      <span class="lang-toggle__label">RU</span>
+    </button>
+  </div>
+
+  <!-- ===== Content ===== -->
+  <main class="legal-page">
+    <h1>Impressum</h1>
+
+    <p>Angaben gemäß § 5 TMG und § 55 Abs. 2 RStV:</p>
+
+    <p>
+      AmorsNadel – Tattoo Studio<br />
+      [Name des Inhabers]<br />
+      [Straße und Hausnummer]<br />
+      [PLZ Ort]
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>
+      E-Mail: <a href="mailto:[deine-email@beispiel.de]">[deine-email@beispiel.de]</a><br />
+      Telefon: [Vorwahl Nummer]
+    </p>
+
+    <h2>Umsatzsteuer-Identifikationsnummer</h2>
+    <p>
+      [DE 123456789] (falls vorhanden)
+    </p>
+
+    <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+    <p>
+      [Name des Inhabers], [Adresse wie oben]
+    </p>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__row">
+      <a href="index.html" class="footer__logo">AMORSNADEL</a>
+      <a href="#" class="footer__link footer__link--social" aria-label="Instagram">
+        <img src="Bilder/instagram.svg" alt="" class="footer__icon" />
+        <span>Instagram</span>
+      </a>
+      <a href="#" class="footer__link footer__link--social" aria-label="Facebook">
+        <img src="Bilder/facebook.svg" alt="" class="footer__icon" />
+        <span>Facebook</span>
+      </a>
+      <a href="datenschutz.html" class="footer__link" data-i18n="footer.datenschutz">Datenschutz</a>
+      <a href="impressum.html" class="footer__link" data-i18n="footer.impressum">Impressum</a>
+    </div>
+    <div class="footer__copy" data-i18n="footer.copy">© 2026 AMORSNADEL. Alle Rechte vorbehalten.</div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
