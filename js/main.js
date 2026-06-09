@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryFilters();
   initFormValidation();
   initScrollAnimations();
+  initLightbox();
+  initNavScroll();
+  initGalleryFavorites();
 });
 
 // ===== Mobile Navigation =====
@@ -134,4 +137,102 @@ function initScrollAnimations() {
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+// ===== Lightbox (Galerie) =====
+function initLightbox() {
+  const lightbox = document.querySelector('.lightbox');
+  if (!lightbox) return;
+
+  const lightboxImg = lightbox.querySelector('.lightbox__img');
+  const lightboxClose = lightbox.querySelector('.lightbox__close');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      // Avoid opening lightbox if a favorite button was clicked
+      if (e.target.closest('.gallery-fav')) return;
+      const img = item.querySelector('img');
+      if (img) {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', closeLightbox);
+  }
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+      closeLightbox();
+    }
+  });
+}
+
+// ===== Nav Scroll Effect =====
+function initNavScroll() {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 50) {
+      nav.classList.add('is-scrolled');
+    } else {
+      nav.classList.remove('is-scrolled');
+    }
+    lastY = y;
+  }, { passive: true });
+}
+
+// ===== Gallery Favorites (LocalStorage) =====
+function initGalleryFavorites() {
+  const favButtons = document.querySelectorAll('.gallery-fav');
+  if (!favButtons.length) return;
+
+  // Restore
+  const stored = JSON.parse(localStorage.getItem('amorsnadel-favs') || '[]');
+  favButtons.forEach(btn => {
+    const id = btn.dataset.id;
+    if (stored.includes(id)) {
+      btn.classList.add('is-active');
+      btn.textContent = '♥';
+    } else {
+      btn.classList.remove('is-active');
+      btn.textContent = '♡';
+    }
+  });
+
+  // Toggle
+  favButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.id;
+      const idx = stored.indexOf(id);
+      if (idx === -1) {
+        stored.push(id);
+        btn.classList.add('is-active');
+        btn.textContent = '♥';
+      } else {
+        stored.splice(idx, 1);
+        btn.classList.remove('is-active');
+        btn.textContent = '♡';
+      }
+      localStorage.setItem('amorsnadel-favs', JSON.stringify(stored));
+    });
+  });
 }
