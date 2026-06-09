@@ -256,10 +256,10 @@ input, textarea, select {
 }
 
 .nav__logo {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 1.25rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   color: var(--gold-primary);
 }
 
@@ -274,16 +274,16 @@ input, textarea, select {
 .nav__links {
   display: none;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .nav__link {
   position: relative;
   font-family: 'Inter', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.6875rem;
-  font-weight: 500;
+  letter-spacing: 0.15em;
+  font-size: 0.8125rem;
+  font-weight: 600;
   color: var(--text-muted);
   transition: color var(--dur-fast) var(--ease-out);
   padding: 0.5rem 0;
@@ -321,8 +321,8 @@ input, textarea, select {
   padding: 0.625rem 1.5rem;
   font-family: 'Inter', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  font-size: 0.8125rem;
   font-weight: 600;
   border: 1px solid var(--gold-primary);
   transition: all var(--dur-fast) var(--ease-out);
@@ -415,7 +415,7 @@ input, textarea, select {
 }
 
 .nav__mobile-menu .nav__link {
-  font-size: 0.875rem;
+  font-size: 1rem;
   padding: 0.875rem 0;
   border-bottom: 1px solid var(--border-divider);
   display: block;
