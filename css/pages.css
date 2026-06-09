@@ -1378,6 +1378,14 @@
   text-align: center;
 }
 
+.footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
 .footer__logo {
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 1.25rem;
@@ -1385,6 +1393,7 @@
   letter-spacing: 0.2em;
   color: #fff;
   text-decoration: none;
+  margin-right: 1rem;
 }
 
 .footer__links {
@@ -1399,6 +1408,25 @@
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.2s ease;
+}
+
+.footer__link--social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer__icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  filter: invert(1) brightness(0.7);
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.footer__link--social:hover .footer__icon {
+  filter: invert(1) brightness(1) sepia(1) saturate(3) hue-rotate(15deg);
+  transform: translateY(-1px);
 }
 
 .footer__link:hover {
