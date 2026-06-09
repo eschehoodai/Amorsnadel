@@ -53,6 +53,26 @@
       object-position: right center;
       opacity: 0.12;
     }
+
+    /* Typewriter Cursor */
+    .typewriter-cursor {
+      display: inline-block;
+      width: 0.5ch;
+      background-color: currentColor;
+      margin-left: 1px;
+      animation: tw-blink 0.9s steps(2) infinite;
+    }
+    @keyframes tw-blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+    [data-typewriter] {
+      white-space: pre-wrap;
+      visibility: hidden;
+    }
+    [data-typewriter].tw-running {
+      visibility: visible;
+    }
   </style>
 </head>
 <body>
@@ -131,11 +151,11 @@
         <span class="about__label" data-i18n="index.about.label">Die Philosophie</span>
         <h2 class="about__title" data-i18n="index.about.title">Über das Studio</h2>
         <div class="about__text">
-          <p data-i18n="index.about.p1">
+          <p data-i18n="index.about.p1" data-typewriter data-typewriter-delay="0" data-typewriter-speed="22">
             AmorsNadel ist nicht nur ein Studio; es ist ein Archiv menschlichen Ausdrucks. Im Herzen der Stadt gelegen, bieten wir eine private, exklusive Umgebung für all jene, die ihren Körper als Leinwand für lebenslange Geschichten betrachten.
           </p>
-          <p data-i18n="index.about.p2">
-            Unser Raum ist auf Fokus und künstlerische Reinheit ausgelegt. Von der chirurgischen Präzision unserer Ausrüstung bis zur galeriereifen Präsentation unseres Portfolios wird jedes Detail akribisch kuratiert, um die Beständigkeit der Markierung zu ehren.
+          <p data-i18n="index.about.p2" data-typewriter data-typewriter-delay="0" data-typewriter-speed="22">
+             Mein Raum ist auf Fokus und künstlerische Reinheit ausgelegt. Von der chirurgischen Präzision der Ausrüstung bis zur galeriereifen Präsentation unseres Portfolios wird jedes Detail akribisch kuratiert, um die Beständigkeit der Markierung zu ehren.
           </p>
         </div>
         <div class="about__divider"></div>
@@ -189,7 +209,7 @@
         <div class="reveal">
           <h2 class="consult__title" data-i18n-html="index.consult.title">Beginne deine<br />Transformation</h2>
           <p class="consult__desc" data-i18n="index.consult.desc">
-            Die Reise zu permanenter Kunst beginnt mit einem Gespräch. Teile uns deine Vision mit, und wir finden den passenden Künstler für dich.
+             Die Reise zu permanenter Kunst beginnt mit einem Gespräch. Teile mir deine Vision mit, und wir finden den passenden Künstler für dich.
           </p>
           <ul class="consult__list">
             <li>
@@ -237,5 +257,124 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const supportsIO = 'IntersectionObserver' in window;
+      const elements = Array.from(document.querySelectorAll('[data-typewriter]'));
+      if (!elements.length) return;
+
+      // Hilfsfunktion: Aktuell sichtbaren Text für ein Element holen.
+      // Nutzt translations aus i18n.js (über data-i18n Schlüssel), sonst textContent.
+      const getText = (el) => {
+        const key = el.getAttribute('data-i18n');
+        if (key && typeof translations !== 'undefined' && translations[key]) {
+          const lang = (typeof getCurrentLang === 'function') ? getCurrentLang() : 'de';
+          return (translations[key][lang] || translations[key].de || '').trim();
+        }
+        return (el.textContent || '').trim();
+      };
+
+      const typeInto = (el, onDone) => {
+        if (el.dataset.twActive === '1') {
+          if (onDone) onDone();
+          return;
+        }
+        const fullText = getText(el);
+        if (!fullText) { if (onDone) onDone(); return; }
+        const speed = Math.max(5, parseInt(el.dataset.typewriterSpeed || '22', 10));
+        const delay = Math.max(0, parseInt(el.dataset.typewriterDelay || '0', 10));
+        el.dataset.twActive = '1';
+        el.dataset.twDone = '0';
+        el.classList.add('tw-running');
+        el.textContent = '';
+
+        const cursor = document.createElement('span');
+        cursor.className = 'typewriter-cursor';
+        el.appendChild(cursor);
+
+        let i = 0;
+        let stopped = false;
+        el._twStop = () => { stopped = true; };
+
+        const typeNext = () => {
+          if (stopped) return;
+          if (i <= fullText.length) {
+            const head = document.createTextNode(fullText.slice(0, i));
+            if (cursor.previousSibling) cursor.previousSibling.remove();
+            el.insertBefore(head, cursor);
+            i++;
+            setTimeout(typeNext, speed);
+          } else {
+            if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+            el.dataset.twDone = '1';
+            if (onDone) onDone();
+          }
+        };
+        setTimeout(typeNext, delay);
+      };
+
+      const showFull = (el) => {
+        if (el._twStop) el._twStop();
+        el.dataset.twActive = '0';
+        el.dataset.twDone = '1';
+        el.classList.add('tw-running');
+        const cursor = el.querySelector('.typewriter-cursor');
+        if (cursor) cursor.remove();
+        el.textContent = getText(el);
+      };
+
+      // Reduced motion oder kein IO: direkt vollen Text anzeigen
+      if (reduced || !supportsIO) {
+        elements.forEach(showFull);
+        return;
+      }
+
+      // Beobachte alle Elemente und gruppiere sie nach gemeinsamen Parent-Containern,
+      // damit Elemente im selben Block nacheinander animiert werden.
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            observer.unobserve(el);
+
+            // Finde Geschwister (im gleichen .about__text Container) und starte sie der Reihe nach
+            const group = elements.filter((other) => other.parentElement === el.parentElement);
+            if (group.length <= 1) {
+              typeInto(el);
+              return;
+            }
+            // Sequenzielle Animation
+            group.forEach((other) => { other.dataset.twActive = '0'; other.dataset.twDone = '0'; });
+            let chain = Promise.resolve();
+            group.forEach((other) => {
+              chain = chain.then(() => new Promise((resolve) => {
+                typeInto(other, resolve);
+              }));
+            });
+          });
+        },
+        { threshold: 0.25 }
+      );
+      elements.forEach((el) => observer.observe(el));
+
+      // Bei Sprachwechsel: Animation neu starten mit neuem Text
+      const origSetLang = window.setLang;
+      if (typeof origSetLang === 'function') {
+        window.setLang = function (lang) {
+          origSetLang(lang);
+          elements.forEach((el) => {
+            // Nur neu starten, wenn Animation bereits lief oder gerade läuft
+            if (el.dataset.twActive === '1' || el.dataset.twDone === '1') {
+              showFull(el);
+              // Re-observe für erneute Animation
+              observer.observe(el);
+            }
+          });
+        };
+      }
+    })();
+  </script>
 </body>
 </html>
