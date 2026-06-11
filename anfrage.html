@@ -33,41 +33,31 @@
   <nav class="nav">
     <a href="index.html" class="nav__logo">AMORSNADEL</a>
     <div class="nav__links">
-      <a href="galerie.html" class="nav__link" data-i18n="nav.galerie">Galerie</a>
-      <a href="anfrage.html" class="nav__link nav__link--active" data-i18n="nav.anfrage">Anfrage</a>
-      <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
+      <a href="galerie.html" class="nav__link">Galerie</a>
+      <a href="anfrage.html" class="nav__link nav__link--active">Anfrage</a>
+      <a href="kontakt.html" class="nav__link">Kontakt</a>
     </div>
-    <div style="display:flex;align-items:center;gap:0.75rem;">
-      <button class="lang-toggle" onclick="toggleLang()" aria-label="Переключить на русский">
-        <span class="material-symbols-outlined lang-toggle__icon">translate</span>
-        <span class="lang-toggle__label">RU</span>
-      </button>
-      <a href="anfrage.html" class="nav__cta" data-i18n="nav.cta">Jetzt Buchen</a>
-    </div>
+    <a href="anfrage.html" class="nav__cta">Jetzt Buchen</a>
     <button class="nav__hamburger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <div class="nav__mobile-menu">
-    <a href="galerie.html" class="nav__link" data-i18n="nav.galerie">Galerie</a>
-    <a href="anfrage.html" class="nav__link nav__link--active" data-i18n="nav.anfrage">Anfrage</a>
-    <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
-    <button class="lang-toggle" onclick="toggleLang()" style="margin-top:0.5rem;">
-      <span class="material-symbols-outlined lang-toggle__icon">translate</span>
-      <span class="lang-toggle__label">RU</span>
-    </button>
+    <a href="galerie.html" class="nav__link">Galerie</a>
+    <a href="anfrage.html" class="nav__link nav__link--active">Anfrage</a>
+    <a href="kontakt.html" class="nav__link">Kontakt</a>
   </div>
 
   <main style="padding-top: 5rem;">
     <!-- ===== Hero Header ===== -->
     <section class="anfrage-hero">
       <div class="anfrage-hero__inner reveal">
-        <span class="anfrage-hero__label font-body" data-i18n="anfrage.label">Reservierungsportal</span>
-        <h1 class="anfrage-hero__title" data-i18n-html="anfrage.title">
+        <span class="anfrage-hero__label font-body">Reservierungsportal</span>
+        <h1 class="anfrage-hero__title">
           SICHERE DIR DEIN <br /><span>EWIGES ZEICHEN.</span>
         </h1>
-        <p class="anfrage-hero__desc" data-i18n="anfrage.desc">
+        <p class="anfrage-hero__desc">
           Jedes Werk ist ein gemeinsamer Dialog zwischen Künstler und Haut. Beginne die Reise, indem du deine Vision unten detailliert beschreibst.
         </p>
       </div>
@@ -116,37 +106,37 @@
         <form class="booking-form reveal">
           <div class="booking-form__row">
             <div class="booking-form__group">
-              <label data-i18n="anfrage.form.name">Vollständiger Name</label>
-              <input type="text" class="form-underline" placeholder="MAX MUSTERMANN" data-i18n-ph="ph.anfrage.name" required />
+              <label>Vollständiger Name</label>
+              <input type="text" class="form-underline" placeholder="MAX MUSTERMANN" required />
             </div>
             <div class="booking-form__group">
-              <label data-i18n="anfrage.form.email">E-Mail Adresse</label>
-              <input type="email" class="form-underline" placeholder="MAX@AMORSNADEL.DE" data-i18n-ph="ph.anfrage.email" required />
-            </div>
-          </div>
-
-          <div class="booking-form__row">
-            <div class="booking-form__group">
-              <label data-i18n="anfrage.form.phone">Telefonnummer</label>
-              <input type="tel" class="form-underline" placeholder="+49 (0) 000 000000" data-i18n-ph="ph.anfrage.phone" />
-            </div>
-            <div class="booking-form__group">
-              <label data-i18n="anfrage.form.placement">Platzierung am Körper</label>
-              <input type="text" class="form-underline" placeholder="INNENARM / BRUSTBEIN" data-i18n-ph="ph.anfrage.placement" />
+              <label>E-Mail Adresse</label>
+              <input type="email" class="form-underline" placeholder="MAX@AMORSNADEL.DE" required />
             </div>
           </div>
 
           <div class="booking-form__row">
             <div class="booking-form__group">
-              <label data-i18n="anfrage.form.size">Geschätzte Größe (CM)</label>
-              <input type="text" class="form-underline" placeholder="Z.B. 15 X 10" data-i18n-ph="ph.anfrage.size" />
+              <label>Telefonnummer</label>
+              <input type="tel" class="form-underline" placeholder="+49 (0) 000 000000" />
             </div>
             <div class="booking-form__group">
-              <label data-i18n="anfrage.form.reference">Referenzbilder</label>
+              <label>Platzierung am Körper</label>
+              <input type="text" class="form-underline" placeholder="INNENARM / BRUSTBEIN" />
+            </div>
+          </div>
+
+          <div class="booking-form__row">
+            <div class="booking-form__group">
+              <label>Geschätzte Größe (CM)</label>
+              <input type="text" class="form-underline" placeholder="Z.B. 15 X 10" />
+            </div>
+            <div class="booking-form__group">
+              <label>Referenzbilder</label>
               <div style="position:relative; width:100%">
                 <input type="file" id="file-upload" style="display:none" />
                 <label for="file-upload" style="display:flex; align-items:center; justify-content:space-between; padding:1rem 0; color:var(--outline-variant); border-bottom:1px solid var(--outline-variant); cursor:pointer; transition:color 0.3s;">
-                  <span class="font-headline" style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase" data-i18n="anfrage.form.upload">VISION ANHÄNGEN</span>
+                  <span class="font-headline" style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase">VISION ANHÄNGEN</span>
                   <span class="material-symbols-outlined" style="font-size:1rem">attachment</span>
                 </label>
               </div>
@@ -154,15 +144,15 @@
           </div>
 
           <div class="booking-form__group">
-            <label data-i18n="anfrage.form.concept">Konzeptbeschreibung</label>
-            <textarea class="form-underline" rows="4" placeholder="BESCHREIBE SYMBOLIK, STIL UND ABSICHT..." data-i18n-ph="ph.anfrage.concept" style="resize:none"></textarea>
+            <label>Konzeptbeschreibung</label>
+            <textarea class="form-underline" rows="4" placeholder="BESCHREIBE SYMBOLIK, STIL UND ABSICHT..." style="resize:none"></textarea>
           </div>
 
           <div class="booking-form__actions">
-            <button type="submit" class="btn btn--secondary" style="padding:1.5rem 3rem; box-shadow:0 0 40px rgba(242,202,80,0.1); letter-spacing:0.2em;" data-i18n="anfrage.form.submit">
+            <button type="submit" class="btn btn--secondary" style="padding:1.5rem 3rem; box-shadow:0 0 40px rgba(242,202,80,0.1); letter-spacing:0.2em;">
               Anfrage absenden
             </button>
-            <p class="booking-form__disclaimer" data-i18n-html="anfrage.form.disclaimer">
+            <p class="booking-form__disclaimer">
               Mit dem Absenden erklärst du dich mit unserer<br />Anzahlungsrichtlinie einverstanden.
             </p>
           </div>
@@ -177,7 +167,7 @@
         <div style="position:absolute; inset:0; background:linear-gradient(to top, var(--surface), transparent, var(--surface))"></div>
       </div>
       <div style="position:relative; z-index:10; text-align:center; padding:0 2rem;">
-        <h2 class="font-headline" style="font-size:clamp(2rem, 5vw, 3.75rem); font-weight:700; letter-spacing:-0.02em; font-style:italic;" data-i18n="anfrage.divider">AMORSNADEL ERWARTET DICH.</h2>
+        <h2 class="font-headline" style="font-size:clamp(2rem, 5vw, 3.75rem); font-weight:700; letter-spacing:-0.02em; font-style:italic;">AMORSNADEL ERWARTET DICH.</h2>
       </div>
     </section>
   </main>
@@ -194,13 +184,12 @@
         <img src="Bilder/facebook.svg" alt="" class="footer__icon" />
         <span>Facebook</span>
       </a>
-      <a href="datenschutz.html" class="footer__link" data-i18n="footer.datenschutz">Datenschutz</a>
-      <a href="impressum.html" class="footer__link" data-i18n="footer.impressum">Impressum</a>
+      <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+      <a href="impressum.html" class="footer__link">Impressum</a>
     </div>
-    <div class="footer__copy" data-i18n="footer.copy">© 2026 AMORSNADEL. Alle Rechte vorbehalten.</div>
+    <div class="footer__copy">© 2026 AMORSNADEL. Alle Rechte vorbehalten.</div>
   </footer>
 
-  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

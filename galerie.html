@@ -33,30 +33,20 @@
   <nav class="nav">
     <a href="index.html" class="nav__logo">AMORSNADEL</a>
     <div class="nav__links">
-      <a href="galerie.html" class="nav__link nav__link--active" data-i18n="nav.galerie">Galerie</a>
-      <a href="anfrage.html" class="nav__link" data-i18n="nav.anfrage">Anfrage</a>
-      <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
+      <a href="galerie.html" class="nav__link nav__link--active">Galerie</a>
+      <a href="anfrage.html" class="nav__link">Anfrage</a>
+      <a href="kontakt.html" class="nav__link">Kontakt</a>
     </div>
-    <div style="display:flex;align-items:center;gap:0.75rem;">
-      <button class="lang-toggle" onclick="toggleLang()" aria-label="Переключить на русский">
-        <span class="material-symbols-outlined lang-toggle__icon">translate</span>
-        <span class="lang-toggle__label">RU</span>
-      </button>
-      <a href="anfrage.html" class="nav__cta" data-i18n="nav.cta">Jetzt Buchen</a>
-    </div>
+    <a href="anfrage.html" class="nav__cta">Jetzt Buchen</a>
     <button class="nav__hamburger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <div class="nav__mobile-menu">
-    <a href="galerie.html" class="nav__link nav__link--active" data-i18n="nav.galerie">Galerie</a>
-    <a href="anfrage.html" class="nav__link" data-i18n="nav.anfrage">Anfrage</a>
-    <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
-    <button class="lang-toggle" onclick="toggleLang()" style="margin-top:0.5rem;">
-      <span class="material-symbols-outlined lang-toggle__icon">translate</span>
-      <span class="lang-toggle__label">RU</span>
-    </button>
+    <a href="galerie.html" class="nav__link nav__link--active">Galerie</a>
+    <a href="anfrage.html" class="nav__link">Anfrage</a>
+    <a href="kontakt.html" class="nav__link">Kontakt</a>
   </div>
 
   <main style="padding-top: 5rem;">
@@ -64,9 +54,9 @@
     <header class="galerie-hero">
       <div class="galerie-hero__glow"></div>
       <div style="position:relative; z-index:10; display:flex; flex-direction:column; gap:1rem;">
-        <span class="galerie-hero__badge" data-i18n="galerie.badge">Die Monographie Bd. I</span>
-        <h1 class="galerie-hero__title" data-i18n-html="galerie.title">ARCHIV<br />DER TINTE</h1>
-        <p class="galerie-hero__desc" data-i18n="galerie.desc">
+        <span class="galerie-hero__badge">Die Monographie Bd. I</span>
+        <h1 class="galerie-hero__title">ARCHIV<br />DER TINTE</h1>
+        <p class="galerie-hero__desc">
           Eine kuratierte Auswahl an Beständigkeit. Von der klinischen Präzision des Mikrorealismus bis zur rohen Seele des Neotraditionalismus – entdecken Sie die Schnittstelle zwischen menschlicher Haut und künstlerischer Meisterschaft.
         </p>
       </div>
@@ -77,17 +67,17 @@
     <section class="filter-bar no-scrollbar">
       <div class="filter-bar__inner">
         <div class="filter-bar__buttons">
-          <button class="filter-bar__btn filter-bar__btn--active" data-filter="all" data-i18n="galerie.filter.all">Alle Werke</button>
-          <button class="filter-bar__btn" data-filter="blackgrey" data-i18n="galerie.filter.blackgrey">Black &amp; Grey</button>
-          <button class="filter-bar__btn" data-filter="realismus" data-i18n="galerie.filter.realismus">Realismus</button>
-          <button class="filter-bar__btn" data-filter="traditional" data-i18n="galerie.filter.traditional">Traditional</button>
-          <button class="filter-bar__btn" data-filter="neo" data-i18n="galerie.filter.neo">Neo-Traditional</button>
-          <button class="filter-bar__btn" data-filter="geometrisch" data-i18n="galerie.filter.geometrisch">Geometrisch</button>
-          <button class="filter-bar__btn" data-filter="blackwork" data-i18n="galerie.filter.blackwork">Blackwork</button>
+          <button class="filter-bar__btn filter-bar__btn--active" data-filter="all">Alle Werke</button>
+          <button class="filter-bar__btn" data-filter="blackgrey">Black &amp; Grey</button>
+          <button class="filter-bar__btn" data-filter="realismus">Realismus</button>
+          <button class="filter-bar__btn" data-filter="traditional">Traditional</button>
+          <button class="filter-bar__btn" data-filter="neo">Neo-Traditional</button>
+          <button class="filter-bar__btn" data-filter="geometrisch">Geometrisch</button>
+          <button class="filter-bar__btn" data-filter="blackwork">Blackwork</button>
         </div>
         <div class="filter-bar__sort">
           <span class="material-symbols-outlined" style="font-size:1rem">filter_list</span>
-          <span data-i18n="galerie.sort">Sortieren nach Datum</span>
+          <span>Sortieren nach Datum</span>
         </div>
       </div>
     </section>
@@ -172,23 +162,22 @@
         <img src="Bilder/facebook.svg" alt="" class="footer__icon" />
         <span>Facebook</span>
       </a>
-      <a href="datenschutz.html" class="footer__link" data-i18n="footer.datenschutz">Datenschutz</a>
-      <a href="impressum.html" class="footer__link" data-i18n="footer.impressum">Impressum</a>
+      <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+      <a href="impressum.html" class="footer__link">Impressum</a>
     </div>
-    <div class="footer__copy" data-i18n="footer.copy">© 2026 AMORSNADEL. Alle Rechte vorbehalten.</div>
+    <div class="footer__copy">© 2026 AMORSNADEL. Alle Rechte vorbehalten.</div>
   </footer>
 
   <!-- ===== Floating Booking Bar ===== -->
   <div class="floating-bar">
     <div class="floating-bar__text">
-      <p style="font-size:0.625rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--on-surface-variant)" data-i18n="galerie.floating.line1">Bereit für dein Zeichen?</p>
-      <p style="font-size:0.75rem; font-weight:700; color:var(--secondary); text-transform:uppercase" data-i18n="galerie.floating.line2">Beratungen sind kostenlos</p>
+      <p style="font-size:0.625rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--on-surface-variant)">Bereit für dein Zeichen?</p>
+      <p style="font-size:0.75rem; font-weight:700; color:var(--secondary); text-transform:uppercase">Beratungen sind kostenlos</p>
     </div>
     <div class="floating-bar__divider"></div>
-    <a href="anfrage.html" class="floating-bar__btn" data-i18n="galerie.floating.btn">Starte deine Reise</a>
+    <a href="anfrage.html" class="floating-bar__btn">Starte deine Reise</a>
   </div>
 
-  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

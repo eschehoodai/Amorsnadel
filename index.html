@@ -9,7 +9,8 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Luxury serif fonts + modern sans-serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
@@ -17,62 +18,22 @@
   <link rel="stylesheet" href="css/pages.css" />
 
   <style>
-    /* Scroll-reveal animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.revealed {
+    /* Scroll-reveal animations (already covered in pages.css) */
+    .reveal { opacity: 0; transform: translateY(30px); }
+    .reveal-scale { opacity: 0; transform: scale(0.95); }
+    .reveal-fade { opacity: 0; }
+    
+    .reveal.revealed,
+    .reveal-scale.revealed,
+    .reveal-fade.revealed {
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
-    /* About-Section: Rabe hinter der gesamten rechten Spalte */
-    .about__col--with-bg {
-      position: relative;
-      isolation: isolate;
-    }
-    .about__col--with-bg > .about__text-bg {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: -2rem;
-      width: 22rem;
-      max-width: 70%;
-      z-index: -1;
-      pointer-events: none;
-      filter: grayscale(20%);
-      display: flex;
-      align-items: center;
-    }
-    .about__col--with-bg > .about__text-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: right center;
-      opacity: 0.12;
-    }
-
-    /* Typewriter Cursor */
-    .typewriter-cursor {
-      display: inline-block;
-      width: 0.5ch;
-      background-color: currentColor;
-      margin-left: 1px;
-      animation: tw-blink 0.9s steps(2) infinite;
-    }
-    @keyframes tw-blink {
-      0%, 50% { opacity: 1; }
-      50.01%, 100% { opacity: 0; }
-    }
-    [data-typewriter] {
-      white-space: pre-wrap;
-      visibility: hidden;
-    }
-    [data-typewriter].tw-running {
-      visibility: visible;
-    }
+    /* Hero & About parallax (covered in main.js) */
+    .hero__bg { transition: transform 25s ease-in-out; }
+    .hero__bg img { filter: grayscale(30%) brightness(0.55) contrast(1.1); }
   </style>
 </head>
 <body>
@@ -81,18 +42,12 @@
     <a href="index.html" class="nav__logo">AMORSNADEL</a>
 
     <div class="nav__links">
-      <a href="galerie.html" class="nav__link" data-i18n="nav.galerie">Galerie</a>
-      <a href="anfrage.html" class="nav__link" data-i18n="nav.anfrage">Anfrage</a>
-      <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
+      <a href="galerie.html" class="nav__link">Galerie</a>
+      <a href="anfrage.html" class="nav__link">Anfrage</a>
+      <a href="kontakt.html" class="nav__link">Kontakt</a>
     </div>
 
-    <div style="display:flex;align-items:center;gap:0.75rem;">
-      <button class="lang-toggle" onclick="toggleLang()" aria-label="Переключить на русский">
-        <span class="material-symbols-outlined lang-toggle__icon">translate</span>
-        <span class="lang-toggle__label">RU</span>
-      </button>
-      <a href="anfrage.html" class="nav__cta" data-i18n="nav.cta">Jetzt Buchen</a>
-    </div>
+    <a href="anfrage.html" class="nav__cta">Jetzt Buchen</a>
 
     <button class="nav__hamburger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
@@ -101,60 +56,59 @@
 
   <!-- Mobile Menu -->
   <div class="nav__mobile-menu">
-    <a href="galerie.html" class="nav__link" data-i18n="nav.galerie">Galerie</a>
-    <a href="anfrage.html" class="nav__link" data-i18n="nav.anfrage">Anfrage</a>
-    <a href="kontakt.html" class="nav__link" data-i18n="nav.kontakt">Kontakt</a>
-    <button class="lang-toggle" onclick="toggleLang()" style="margin-top:0.5rem;">
-      <span class="material-symbols-outlined lang-toggle__icon">translate</span>
-      <span class="lang-toggle__label">RU</span>
-    </button>
+    <a href="galerie.html" class="nav__link">Galerie</a>
+    <a href="anfrage.html" class="nav__link">Anfrage</a>
+    <a href="kontakt.html" class="nav__link">Kontakt</a>
   </div>
 
   <!-- ===== Hero Section ===== -->
   <section class="hero">
     <div class="hero__bg">
-      <img src="Bilder/kunstbeiarbeit1.webp" alt="Tattoo-Künstler bei der Arbeit" />
-      <div class="hero__bg-overlay hero-overlay"></div>
-      <div class="hero__bg-overlay" style="background: rgba(10,10,10,0.2)"></div>
+      <img src="Bilder/kunstbeiarbeit1.webp" alt="Tattoo-Künstler bei der Arbeit" loading="eager" />
+      <div class="hero__bg-overlay"></div>
     </div>
 
     <div class="hero__content">
-      <h1 class="hero__title" data-i18n-html="index.hero.title">
+      <div class="hero__eyebrow reveal">Exklusives Tattoo-Studio</div>
+      <h1 class="hero__title reveal">
         Wo <span class="text-accent-gradient">Kunst</span><br />auf <span class="text-red-gradient">Haut</span> trifft.
       </h1>
-      <p class="hero__desc" data-i18n="index.hero.desc">
+      <p class="hero__desc reveal">
         Ein Heiligtum der Beständigkeit. Wir erheben das Tätowierhandwerk zu einem kuratierten Galerie-Erlebnis, bei dem jeder Stich ein Meisterwerk ist.
       </p>
-      <div class="hero__actions">
-        <a href="anfrage.html" class="btn btn--primary" data-i18n="index.hero.btn1">Beratungstermin buchen</a>
-        <a href="galerie.html" class="btn btn--outline" data-i18n="index.hero.btn2">Archiv ansehen</a>
+      <div class="hero__actions reveal">
+        <a href="anfrage.html" class="btn btn--primary">Beratungstermin buchen</a>
+        <a href="galerie.html" class="btn btn--outline">Archiv ansehen</a>
       </div>
     </div>
+
+    <!-- Scroll Cue (automatisch versteckt bei Scroll) -->
+    <div class="hero__scroll-cue">Scrollen</div>
   </section>
 
   <!-- ===== About Section ===== -->
   <section class="about" id="about">
     <div class="about__grid">
-      <div class="about__images reveal">
+      <div class="about__images reveal-scale reveal">
         <div class="about__img-main">
-          <img src="Bilder/k%C3%BCnstler.webp" alt="AmorsNadel Studio-Interieur" />
+          <img src="Bilder/k%C3%BCnstler.webp" alt="AmorsNadel Studio-Interieur" loading="lazy" />
         </div>
         <div class="about__img-accent">
-          <img src="Bilder/k%C3%BCnstler.webp" alt="Detailaufnahme Tinte auf Haut" />
+          <img src="Bilder/k%C3%BCnstler.webp" alt="Detailaufnahme Tinte auf Haut" loading="lazy" />
         </div>
       </div>
 
-      <div class="reveal about__col--with-bg">
+      <div class="reveal-scale reveal about__col--with-bg">
         <div class="about__text-bg" aria-hidden="true">
           <img src="Bilder/pngrabe.png" alt="" />
         </div>
-        <span class="about__label" data-i18n="index.about.label">Die Philosophie</span>
-        <h2 class="about__title" data-i18n="index.about.title">Über das Studio</h2>
+        <span class="about__label">Die Philosophie</span>
+        <h2 class="about__title">Über das Studio</h2>
         <div class="about__text">
-          <p data-i18n="index.about.p1" data-typewriter data-typewriter-delay="0" data-typewriter-speed="22">
+          <p>
             AmorsNadel ist nicht nur ein Studio; es ist ein Archiv menschlichen Ausdrucks. Im Herzen der Stadt gelegen, bieten wir eine private, exklusive Umgebung für all jene, die ihren Körper als Leinwand für lebenslange Geschichten betrachten.
           </p>
-          <p data-i18n="index.about.p2" data-typewriter data-typewriter-delay="0" data-typewriter-speed="22">
+          <p>
              Mein Raum ist auf Fokus und künstlerische Reinheit ausgelegt. Von der chirurgischen Präzision der Ausrüstung bis zur galeriereifen Präsentation unseres Portfolios wird jedes Detail akribisch kuratiert, um die Beständigkeit der Markierung zu ehren.
           </p>
         </div>
@@ -166,38 +120,38 @@
   <!-- ===== Gallery Sneak Peek ===== -->
   <section class="gallery-peek" id="galerie-peek">
     <div class="gallery-peek__header reveal">
-      <span class="gallery-peek__label" data-i18n="index.gallery.label">Die Sammlung</span>
-      <h2 class="gallery-peek__title" data-i18n="index.gallery.title">Aktuelle Galerie</h2>
+      <span class="gallery-peek__label">Die Sammlung</span>
+      <h2 class="gallery-peek__title">Aktuelle Galerie</h2>
     </div>
 
     <div class="gallery-grid reveal">
       <!-- Item 1 – Large -->
       <div class="gallery-item gallery-item--large">
-        <img src="Bilder/ruecken.webp" alt="Rücken-Tattoo" />
+        <img src="Bilder/ruecken.webp" alt="Rücken-Tattoo" loading="lazy" />
         <div class="gallery-item__overlay"></div>
         <div class="gallery-item__info">
-          <p class="gallery-item__title" style="font-size:1.5rem">Wiedergeburt — Elias Thorne</p>
+          <p class="gallery-item__title">Wiedergeburt — Elias Thorne</p>
         </div>
       </div>
 
       <!-- Item 2 -->
       <div class="gallery-item gallery-item--wide">
-        <img src="Bilder/odin.jpg" alt="Odin Tattoo" />
+        <img src="Bilder/odin.jpg" alt="Odin Tattoo" loading="lazy" />
       </div>
 
       <!-- Item 3 -->
       <div class="gallery-item">
-        <img src="Bilder/naruto.webp" alt="Naruto Tattoo" />
+        <img src="Bilder/naruto.webp" alt="Naruto Tattoo" loading="lazy" />
       </div>
 
       <!-- Item 4 -->
       <div class="gallery-item">
-        <img src="Bilder/donaldduck.webp" alt="Donald Duck Tattoo" />
+        <img src="Bilder/donaldduck.webp" alt="Donald Duck Tattoo" loading="lazy" />
       </div>
     </div>
 
     <div class="gallery-peek__cta reveal">
-      <a href="galerie.html" class="btn btn--primary" style="box-shadow: 0 0 40px rgba(212,175,55,0.1)" data-i18n="index.gallery.cta">Das Archiv betreten</a>
+      <a href="galerie.html" class="btn btn--primary">Das Archiv betreten</a>
     </div>
   </section>
 
@@ -207,31 +161,31 @@
       <div class="consult__glow"></div>
       <div class="consult__grid">
         <div class="reveal">
-          <h2 class="consult__title" data-i18n-html="index.consult.title">Beginne deine<br />Transformation</h2>
-          <p class="consult__desc" data-i18n="index.consult.desc">
+          <h2 class="consult__title">Beginne deine<br />Transformation</h2>
+          <p class="consult__desc">
              Die Reise zu permanenter Kunst beginnt mit einem Gespräch. Teile mir deine Vision mit, und wir erschaffen das passende Kunstwerk für dich.
-          </p>
+           </p>
           <ul class="consult__list">
             <li>
               <span class="material-symbols-outlined">check</span>
-              <span data-i18n="index.consult.check1">Private Studio-Beratung</span>
+              <span>Private Studio-Beratung</span>
             </li>
             <li>
               <span class="material-symbols-outlined">check</span>
-              <span data-i18n="index.consult.check2">Individuelle Design-Entwicklung</span>
+              <span>Individuelle Design-Entwicklung</span>
             </li>
             <li>
               <span class="material-symbols-outlined">check</span>
-              <span data-i18n="index.consult.check3">Exzellente Nachsorge</span>
+              <span>Exzellente Nachsorge</span>
             </li>
           </ul>
         </div>
 
         <form class="consult__form reveal">
-          <input type="text" placeholder="Vollständiger Name" data-i18n-ph="ph.name" required />
-          <input type="email" placeholder="E-Mail-Adresse" data-i18n-ph="ph.email" required />
-          <textarea rows="3" placeholder="Erzähle uns von deiner Idee" data-i18n-ph="ph.idea"></textarea>
-          <button type="submit" class="consult__submit" data-i18n="index.consult.submit">Beratung anfordern</button>
+          <input type="text" placeholder="Vollständiger Name" required />
+          <input type="email" placeholder="E-Mail-Adresse" required />
+          <textarea rows="3" placeholder="Erzähle uns von deiner Idee"></textarea>
+          <button type="submit" class="consult__submit">Beratung anfordern</button>
         </form>
       </div>
     </div>
@@ -242,139 +196,25 @@
     <div class="footer__row">
       <a href="index.html" class="footer__logo">AMORSNADEL</a>
       <a href="#" class="footer__link footer__link--social" aria-label="Instagram">
-        <img src="Bilder/instagram.svg" alt="" class="footer__icon" />
+        <img src="Bilder/instagram.svg" alt="" class="footer__icon" loading="lazy" />
         <span>Instagram</span>
       </a>
       <a href="#" class="footer__link footer__link--social" aria-label="Facebook">
-        <img src="Bilder/facebook.svg" alt="" class="footer__icon" />
+        <img src="Bilder/facebook.svg" alt="" class="footer__icon" loading="lazy" />
         <span>Facebook</span>
       </a>
-      <a href="datenschutz.html" class="footer__link" data-i18n="footer.datenschutz">Datenschutz</a>
-      <a href="impressum.html" class="footer__link" data-i18n="footer.impressum">Impressum</a>
+      <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+      <a href="impressum.html" class="footer__link">Impressum</a>
     </div>
-    <div class="footer__copy" data-i18n="footer.copy">© 2026 AMORSNADEL. Alle Rechte vorbehalten.</div>
+    <div class="footer__copy">© 2026 AMORSNADEL. Alle Rechte vorbehalten.</div>
   </footer>
 
-  <script src="js/i18n.js"></script>
+  <!-- Lightbox -->
+  <div class="lightbox">
+    <img src="" alt="" class="lightbox__img" />
+    <button class="lightbox__close" aria-label="Schließen">×</button>
+  </div>
+
   <script src="js/main.js"></script>
-  <script>
-    (function () {
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const supportsIO = 'IntersectionObserver' in window;
-      const elements = Array.from(document.querySelectorAll('[data-typewriter]'));
-      if (!elements.length) return;
-
-      // Hilfsfunktion: Aktuell sichtbaren Text für ein Element holen.
-      // Nutzt translations aus i18n.js (über data-i18n Schlüssel), sonst textContent.
-      const getText = (el) => {
-        const key = el.getAttribute('data-i18n');
-        if (key && typeof translations !== 'undefined' && translations[key]) {
-          const lang = (typeof getCurrentLang === 'function') ? getCurrentLang() : 'de';
-          return (translations[key][lang] || translations[key].de || '').trim();
-        }
-        return (el.textContent || '').trim();
-      };
-
-      const typeInto = (el, onDone) => {
-        if (el.dataset.twActive === '1') {
-          if (onDone) onDone();
-          return;
-        }
-        const fullText = getText(el);
-        if (!fullText) { if (onDone) onDone(); return; }
-        const speed = Math.max(5, parseInt(el.dataset.typewriterSpeed || '22', 10));
-        const delay = Math.max(0, parseInt(el.dataset.typewriterDelay || '0', 10));
-        el.dataset.twActive = '1';
-        el.dataset.twDone = '0';
-        el.classList.add('tw-running');
-        el.textContent = '';
-
-        const cursor = document.createElement('span');
-        cursor.className = 'typewriter-cursor';
-        el.appendChild(cursor);
-
-        let i = 0;
-        let stopped = false;
-        el._twStop = () => { stopped = true; };
-
-        const typeNext = () => {
-          if (stopped) return;
-          if (i <= fullText.length) {
-            const head = document.createTextNode(fullText.slice(0, i));
-            if (cursor.previousSibling) cursor.previousSibling.remove();
-            el.insertBefore(head, cursor);
-            i++;
-            setTimeout(typeNext, speed);
-          } else {
-            if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
-            el.dataset.twDone = '1';
-            if (onDone) onDone();
-          }
-        };
-        setTimeout(typeNext, delay);
-      };
-
-      const showFull = (el) => {
-        if (el._twStop) el._twStop();
-        el.dataset.twActive = '0';
-        el.dataset.twDone = '1';
-        el.classList.add('tw-running');
-        const cursor = el.querySelector('.typewriter-cursor');
-        if (cursor) cursor.remove();
-        el.textContent = getText(el);
-      };
-
-      // Reduced motion oder kein IO: direkt vollen Text anzeigen
-      if (reduced || !supportsIO) {
-        elements.forEach(showFull);
-        return;
-      }
-
-      // Beobachte alle Elemente und gruppiere sie nach gemeinsamen Parent-Containern,
-      // damit Elemente im selben Block nacheinander animiert werden.
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const el = entry.target;
-            observer.unobserve(el);
-
-            // Finde Geschwister (im gleichen .about__text Container) und starte sie der Reihe nach
-            const group = elements.filter((other) => other.parentElement === el.parentElement);
-            if (group.length <= 1) {
-              typeInto(el);
-              return;
-            }
-            // Sequenzielle Animation
-            group.forEach((other) => { other.dataset.twActive = '0'; other.dataset.twDone = '0'; });
-            let chain = Promise.resolve();
-            group.forEach((other) => {
-              chain = chain.then(() => new Promise((resolve) => {
-                typeInto(other, resolve);
-              }));
-            });
-          });
-        },
-        { threshold: 0.25 }
-      );
-      elements.forEach((el) => observer.observe(el));
-
-      // Bei Sprachwechsel: Animation neu starten mit neuem Text
-      const origSetLang = window.setLang;
-      if (typeof origSetLang === 'function') {
-        window.setLang = function (lang) {
-          origSetLang(lang);
-          elements.forEach((el) => {
-            // Nur neu starten, wenn Animation bereits lief oder gerade läuft
-            if (el.dataset.twActive === '1' || el.dataset.twDone === '1') {
-              showFull(el);
-              // Re-observe für erneute Animation
-              observer.observe(el);
-            }
-          });
-        };
-      }
-    })();
-  </script>
 </body>
 </html>
